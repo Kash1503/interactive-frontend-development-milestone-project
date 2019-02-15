@@ -76,6 +76,16 @@
     color: #f9f49c;
 }
 
+.nav-logo:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-logo:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
 .nav-logo:hover {
     color: #f9f49c;
     text-decoration: none;
