@@ -2,35 +2,39 @@
 
 /*--Utility classes--*/
 
-.test-div{
+.test-div {
     height: 400px;
 }
 
-.no-margin{
+.no-margin {
     margin: 0;
 }
 
-.center-content{
+.margin-1px {
+    margin: 1px;
+}
+
+.center-content {
     text-align: center;
 }
 
 /*--Colors--*/
 
-.background-nav{
+.background-nav {
     background-color: #676767;
 }
 
-.background-footer{
+.background-footer {
     background-color: #676767;
 }
 
 /*--Nav bar--*/
 
-.nav-padding{
+.nav-padding {
     padding-bottom: 15px;
 }
 
-.nav-logo{
+.nav-logo {
     display: inline-block;
     padding-top: 12px;
     font-family: 'Dancing Script', cursive;
@@ -46,16 +50,17 @@
     -o-transition: all 0.2s ease-in-out;
 }
 
-.nav-list{
+.nav-list {
     text-align: center;
 }
 
-.nav-item{
-    margin: 0 60px;
+.nav-item {
+    margin: 0 10px;
     padding-top: 25px;
+    list-style: none;
 }
 
-.nav-item a{
+.nav-item a {
     text-decoration: none;
     color: #fff;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -67,17 +72,30 @@
     -o-transition: all 0.2s ease-in-out;
 }
 
-.nav-item a:hover{
+.nav-item a:hover {
     color: #f9f49c;
 }
 
-.nav-logo:hover{
+.nav-logo:hover {
     color: #f9f49c;
     text-decoration: none;
 }
 
+.center-hamburger {
+    margin-top: 20px;
+}
+
 /*--Footer--*/
 
-.footer{
+.footer {
     height: 75px;
+}
+
+/*--Media Queries--*/
+
+@media(min-width: 992px) {
+    .nav-item {
+        margin: 0 45px;
+        padding-top: 25px;
+    }
 }
