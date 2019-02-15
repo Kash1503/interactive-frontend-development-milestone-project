@@ -2,33 +2,44 @@
 
 /*--Utility classes--*/
 
-.test-div {
-    height: 400px;
-}
-
 .no-margin {
     margin: 0;
 }
 
+.no-padding{
+    padding: 0;
+}
+
 .margin-1px {
-    margin: 1px;
+    margin: 0 1px;
 }
 
 .center-content {
     text-align: center;
 }
 
+.overlay{
+    background-color: rgba(0, 0, 0, 0.6);
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 /*--Colors--*/
 
 .background-nav {
-    background-color: #676767;
+    background-color: #474747;
 }
 
 .background-footer {
-    background-color: #676767;
+    background-color: #474747;
 }
 
 /*--Nav bar--*/
+
+.navbar{
+    border: none;
+}
 
 .nav-padding {
     padding-bottom: 15px;
@@ -99,6 +110,30 @@
 
 .footer {
     height: 75px;
+}
+
+/*--Welcome Section--*/
+
+.welcome-section-background{
+    background-image: url(../images/newyork.jpg);
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    height: 75vh;
+    width: 100%;
+}
+
+.welcome-text{
+    color: #fff;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 100;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10vh;
 }
 
 /*--Media Queries--*/
