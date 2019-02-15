@@ -94,8 +94,10 @@
 /*--Media Queries--*/
 
 @media(min-width: 992px) {
+    
     .nav-item {
         margin: 0 45px;
         padding-top: 25px;
+        list-style: none;
     }
 }
