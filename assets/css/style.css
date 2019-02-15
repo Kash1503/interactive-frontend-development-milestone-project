@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script: 100, 200, 300, 400, 500, 600, 700 | Open+Sans+Condensed: 100, 200, 300, 400, 500, 600, 700');
+
+/*--Utility classes--*/
+
+.test-div{
+    height: 400px;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+.center-content{
+    text-align: center;
+}
+
+/*--Colors--*/
+
+.background-nav{
+    background-color: #676767;
+}
+
+.background-footer{
+    background-color: #676767;
+}
+
+/*--Nav bar--*/
+
+.nav-padding{
+    padding-bottom: 15px;
+}
+
+.nav-logo{
+    display: inline-block;
+    padding-top: 12px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
+    font-weight: 100;
+    color: #fff;
+    transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.nav-list{
+    text-align: center;
+}
+
+.nav-item{
+    margin: 0 60px;
+    padding-top: 25px;
+}
+
+.nav-item a{
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.nav-item a:hover{
+    color: #f9f49c;
+}
+
+.nav-logo:hover{
+    color: #f9f49c;
+    text-decoration: none;
+}
+
+/*--Footer--*/
+
+.footer{
+    height: 75px;
+}
