@@ -6,7 +6,7 @@
     margin: 0;
 }
 
-.no-padding{
+.no-padding {
     padding: 0;
 }
 
@@ -18,11 +18,16 @@
     text-align: center;
 }
 
-.overlay{
+.overlay {
     background-color: rgba(0, 0, 0, 0.6);
     position: relative;
     width: 100%;
     height: 100%;
+}
+
+.brand-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
 }
 
 /*--Colors--*/
@@ -37,7 +42,7 @@
 
 /*--Nav bar--*/
 
-.navbar{
+.navbar {
     border: none;
 }
 
@@ -114,7 +119,7 @@
 
 /*--Welcome Section--*/
 
-.welcome-section-background{
+.welcome-section-background {
     background-image: url(../images/newyork.jpg);
     position: relative;
     align-items: center;
@@ -123,26 +128,78 @@
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
-    height: 75vh;
+    height: 90vh;
     width: 100%;
 }
 
-.welcome-text{
+.welcome-text {
     color: #fff;
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 100;
     font-size: 30px;
     text-align: center;
-    padding-top: 10vh;
+    padding-top: 20vh;
+    margin: 0 10px;
+}
+
+/*--Search bar--*/
+
+.search-form {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.search-bar {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    width: 80%;
+    height: 40px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+.search-button {
+    height: 38px;
+    width: 30px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.search-button:hover {
+    height: 38px;
+    width: 30px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #f9f49c;
 }
 
 /*--Media Queries--*/
 
 @media(min-width: 992px) {
-    
+
     .nav-item {
         margin: 0 45px;
         padding-top: 25px;
         list-style: none;
+    }
+}
+
+@media(min-width: 600px) {
+
+    .search-bar {
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        width: 60%;
+        height: 40px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-weight: 100;
+        font-size: 15px;
+        padding-left: 10px;
     }
 }

@@ -8,6 +8,8 @@
 
     <!--Initialise Bootstrap 3.3.7-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+    <!--Initialise Font Awesome 4.7.0-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <!--Link to style.css-->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
@@ -78,9 +80,15 @@
                     <div class="welcome-section-background">
                         <div class="overlay">
                             <article class="welcome-text">
-                                <p>Welcome to the Travel Guide!</p>
+                                <p>Welcome to the <span class="brand-text">Travel Guide</span>!</p>
                                 <p>Search for the city you want to visit below to get started</p>
                             </article>
+                            <div class="col-xs-12">
+                                <form class="search-form">
+                                    <input type="text" name="search-bar" class="search-bar" placeholder="Which city are you planning to visit?.."/>
+                                    <button type="Submit" class="search-button"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
