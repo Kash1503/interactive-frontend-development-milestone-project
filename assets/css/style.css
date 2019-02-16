@@ -179,6 +179,23 @@
     color: #f9f49c;
 }
 
+/*--Google Maps section--*/
+
+#map{
+    height: 560px;
+    width: 560px;
+    margin: 20px;
+    position: absolute;
+}
+
+.map-wrapper{
+    height: 600px;
+    width: 600px;
+    margin: 40px auto;
+    background-color: #474747;
+    border-radius: 5px;
+}
+
 /*--Media Queries--*/
 
 @media(min-width: 992px) {
