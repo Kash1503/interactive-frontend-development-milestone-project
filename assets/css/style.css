@@ -68,18 +68,18 @@
   -o-transition: all 0.2s ease-in-out; }
 
 .nav-item a:hover {
-  color: highlight-yellow; }
+  color: #f9f49c; }
 
 .nav-logo:link {
-  color: main-white;
+  color: #ffffff;
   text-decoration: none; }
 
 .nav-logo:visited {
-  color: main-white;
+  color: #ffffff;
   text-decoration: none; }
 
 .nav-logo:hover {
-  color: highlight-yellow;
+  color: #f9f49c;
   text-decoration: none; }
 
 .center-hamburger {

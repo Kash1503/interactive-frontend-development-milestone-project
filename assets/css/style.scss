@@ -116,28 +116,28 @@ $highlight-yellow: #f9f49c;
 .nav-item {
     a {
         &:hover {
-            color: highlight-yellow;
+            color: $highlight-yellow;
         }
     }
 }
 
 .nav-logo {
     &:link {
-        color: main-white;
+        color: $main-white;
         text-decoration: none;
     }
 }
 
 .nav-logo {
     &:visited {
-        color: main-white;
+        color: $main-white;
         text-decoration: none;
     }
 }
 
 .nav-logo {
     &:hover {
-        color: highlight-yellow;
+        color: $highlight-yellow;
         text-decoration: none;
     }
 }
