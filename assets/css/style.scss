@@ -1,0 +1,262 @@
+//Google fonts
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script: 100, 200, 300, 400, 500, 600, 700 | Open+Sans+Condensed: 100, 200, 300, 400, 500, 600, 700');
+
+//Set font variables
+$dancing-script: 'Dancing Script',
+cursive;
+$open-sans-condensed: 'Open Sans Condensed',
+sans-serif;
+
+//Variables
+$main-grey: #474747;
+$main-white: #ffffff;
+$highlight-yellow: #f9f49c;
+
+//Mixins
+@mixin min992 {
+    @media only screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin min600 {
+    @media only screen and (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin transition {
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+//Utility classes
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.margin-1px {
+    margin: 0 1px;
+}
+
+.center-content {
+    text-align: center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.brand-text {
+    font-family: $dancing-script;
+    font-size: 40px;
+}
+
+//Colours
+.background-nav {
+    background-color: $main-grey;
+}
+
+.background-footer {
+    background-color: $main-grey;
+}
+
+//Nav bar
+.navbar {
+    border: none;
+}
+
+.nav-padding {
+    padding-bottom: 15px;
+}
+
+.nav-logo {
+    display: inline-block;
+    padding-top: 12px;
+    font-family: $dancing-script;
+    font-size: 35px;
+    font-weight: 100;
+    color: $main-white;
+    transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    @include transition;
+}
+
+.nav-list {
+    text-align: center;
+}
+
+.nav-item {
+    margin: 0 10px;
+    padding-top: 25px;
+    list-style: none;
+}
+
+.nav-item {
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-family: $open-sans-condensed;
+        font-size: 20px;
+        font-weight: 100;
+        @include transition;
+    }
+}
+
+.nav-item {
+    a {
+        &:hover {
+            color: highlight-yellow;
+        }
+    }
+}
+
+.nav-logo {
+    &:link {
+        color: main-white;
+        text-decoration: none;
+    }
+}
+
+.nav-logo {
+    &:visited {
+        color: main-white;
+        text-decoration: none;
+    }
+}
+
+.nav-logo {
+    &:hover {
+        color: highlight-yellow;
+        text-decoration: none;
+    }
+}
+
+.center-hamburger {
+    margin-top: 20px;
+}
+
+//Footer
+.footer {
+    height: 75px;
+}
+
+//Welcome section
+.welcome-section-background {
+    background-image: url(../images/newyork.jpg);
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    height: 90vh;
+    width: 100%;
+}
+
+.welcome-text {
+    color: $main-white;
+    font-family: $open-sans-condensed;
+    font-weight: 100;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 20vh;
+    margin: 0 10px;
+}
+
+//Search bar
+.search-form {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.search-bar {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    width: 80%;
+    height: 40px;
+    font-family: $open-sans-condensed;
+    font-weight: 100;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+.search-button {
+    height: 38px;
+    width: 30px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    @include transition;
+}
+
+.search-button {
+    &:hover {
+        height: 38px;
+        width: 30px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        color: $highlight-yellow;
+    }
+}
+
+//Maps section
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.map-wrapper {
+    height: 500px;
+    width: 95%;
+    margin: 40px auto;
+    background-color: $main-grey;
+    border-radius: 5px;
+}
+
+//Media Queries
+@include min992 {
+    .nav-item {
+        margin: 0 45px;
+        padding-top: 25px;
+        list-style: none;
+    }
+}
+
+@include min600 {
+    .search-bar {
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        width: 60%;
+        height: 40px;
+        font-family: $open-sans-condensed;
+        font-weight: 100;
+        font-size: 15px;
+        padding-left: 10px;
+    }
+
+    #map {
+        height: 460px;
+        width: 560px;
+        margin: 20px;
+        position: absolute;
+    }
+
+    .map-wrapper {
+        height: 500px;
+        width: 600px;
+        margin: 40px auto;
+        background-color: $main-grey;
+        border-radius: 5px;
+    }
+}
