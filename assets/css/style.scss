@@ -19,6 +19,12 @@ $highlight-yellow: #f9f49c;
     }
 }
 
+@mixin min768 {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
 @mixin min600 {
     @media only screen and (min-width: 600px) {
         @content;
@@ -182,8 +188,7 @@ $highlight-yellow: #f9f49c;
 }
 
 .search-bar {
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+    border-radius: 5px;
     width: 80%;
     height: 40px;
     font-family: $open-sans-condensed;
@@ -192,47 +197,29 @@ $highlight-yellow: #f9f49c;
     padding-left: 10px;
 }
 
-.search-button {
-    height: 38px;
-    width: 30px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    @include transition;
-}
-
-.search-button {
-    &:hover {
-        height: 38px;
-        width: 30px;
-        border-bottom-right-radius: 5px;
-        border-top-right-radius: 5px;
-        color: $highlight-yellow;
-    }
-}
-
 //Maps section
 #map {
     height: 100%;
     width: 100%;
+    border-radius: 10px;
 }
 
 .map-wrapper {
     height: 500px;
     width: 95%;
-    margin: 40px auto;
-    background-color: $main-grey;
+    margin: 10px auto;
+}
+
+.search-bar-mini {
     border-radius: 5px;
+    width: 80%;
+    height: 40px;
+    font-family: $open-sans-condensed;
+    font-weight: 100;
+    font-size: 15px;
 }
 
 //Media Queries
-@include min992 {
-    .nav-item {
-        margin: 0 45px;
-        padding-top: 25px;
-        list-style: none;
-    }
-}
-
 @include min600 {
     .search-bar {
         border-bottom-left-radius: 5px;
@@ -244,19 +231,12 @@ $highlight-yellow: #f9f49c;
         font-size: 15px;
         padding-left: 10px;
     }
+}
 
-    #map {
-        height: 460px;
-        width: 560px;
-        margin: 20px;
-        position: absolute;
-    }
-
-    .map-wrapper {
-        height: 500px;
-        width: 600px;
-        margin: 40px auto;
-        background-color: $main-grey;
-        border-radius: 5px;
+@include min992 {
+    .nav-item {
+        margin: 0 45px;
+        padding-top: 25px;
+        list-style: none;
     }
 }
