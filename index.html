@@ -86,7 +86,7 @@
                             <div class="col-xs-12">
                                 <!--Search bar-->
                                 <form class="search-form">
-                                    <input id="search-bar" type="text" name="search-bar" class="search-bar" placeholder="Which city are you planning to visit?.." />
+                                    <input id="search-bar" type="text" name="search-bar" class="search-bar" placeholder="Which city are you planning to visit?.." onkeypress="return noSubmit(window.event.keyCode)"/>
                                 </form>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="col-xs-12 col-lg-6">
                     <form class="search-form">
-                        <input id="search-bar2" type="text" name="search-bar" class="search-bar-mini" placeholder="Where else would you like to go?.." />
+                        <input id="search-bar2" type="text" name="search-bar" class="search-bar-mini" placeholder="Where else would you like to go?.." onkeypress="return noSubmit(window.event.keyCode)"/>
                     </form>
                 </div>
             </div>
@@ -137,6 +137,8 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHmEm8NDMhkK4kCH91h7RlKNf83AmKTR4&libraries=places&callback=initMap"></script>
     <!--Link to Google maps.js file-->
     <script type="text/javascript" src="assets/js/maps.js"></script>
+    <!--Link to noSubmit.js script-->
+    <script type="text/javascript" src="assets/js/no-submit.js"></script>
 </body>
 
 </html>
