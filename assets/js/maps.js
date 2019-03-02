@@ -4,6 +4,10 @@ var markersBar = [];
 var markersLodging = [];
 var markersMuseum = [];
 
+//set label variables
+var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var labelIndex = 0;
+
 //Initialise Google Maps (taken from Google Maps API Documentation and edited to fit my page, added code for second search bar)
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -117,26 +121,27 @@ function initMap() {
     //run the findPlaces function, passing in the current center of the map
     findPlaces(map.getCenter());
   });
-  
-  google.maps.event.addDomListener(document.getElementById('filter') , 'click', function(){
-    if($("#mapFilter option:selected").val() == 'all'){
+
+  //when filter button is pressed, 
+  google.maps.event.addDomListener(document.getElementById('filter'), 'click', function() {
+    if ($("#mapFilter option:selected").val() == 'all') {
       showAllMarkers();
     };
-    if($("#mapFilter option:selected").val() == 'museum'){
+    if ($("#mapFilter option:selected").val() == 'museum') {
       changeMarkers(markersMuseum);
     };
-    if($("#mapFilter option:selected").val() == 'food'){
+    if ($("#mapFilter option:selected").val() == 'food') {
       changeMarkers(markersFood);
     };
-    if($("#mapFilter option:selected").val() == 'drink'){
+    if ($("#mapFilter option:selected").val() == 'drink') {
       changeMarkers(markersBar);
     };
-    if($("#mapFilter option:selected").val() == 'lodging'){
+    if ($("#mapFilter option:selected").val() == 'lodging') {
       changeMarkers(markersLodging);
     };
   });
-  
-  
+
+
   //custom function to create a nearby places search
   function findPlaces(currentPos) {
 
@@ -192,14 +197,18 @@ function initMap() {
       }
       //log array to console for debugging
       console.log(markerArray);
+      labelIndex = 0;
     }
   }
 
   //function to create a marker at the given place location in the results array
   function createMarker(place, markerArray) {
+
+    //create marker with label from labels variable
     var marker = new google.maps.Marker({
       map: map,
-      position: place.geometry.location
+      position: place.geometry.location,
+      label: labels[labelIndex++ % labels.length]
     });
     markerArray.push(marker);
   }
@@ -215,47 +224,47 @@ function initMap() {
     }
     markersArray = [];
   }
-  
-  function changeMarkers(markerArray){
-    
+
+  function changeMarkers(markerArray) {
+
     //set all markers to null
-    for (i = 0; i < markersFood.length; i++){
+    for (i = 0; i < markersFood.length; i++) {
       markersFood[i].setMap(null);
     }
-    for (i = 0; i < markersBar.length; i++){
+    for (i = 0; i < markersBar.length; i++) {
       markersBar[i].setMap(null);
     }
-    for (i = 0; i < markersLodging.length; i++){
+    for (i = 0; i < markersLodging.length; i++) {
       markersLodging[i].setMap(null);
     }
-    for (i = 0; i < markersMuseum.length; i++){
+    for (i = 0; i < markersMuseum.length; i++) {
       markersMuseum[i].setMap(null);
     }
-    
+
     //enable the selected marker on the map
-    for (i = 0; i < markerArray.length; i++){
+    for (i = 0; i < markerArray.length; i++) {
       markerArray[i].setMap(map);
     }
-    
+
   }
-  
-  function showAllMarkers(){
-    
+
+  function showAllMarkers() {
+
     //show all the current markers
-    for (i = 0; i < markersFood.length; i++){
+    for (i = 0; i < markersFood.length; i++) {
       markersFood[i].setMap(map);
     }
-    for (i = 0; i < markersBar.length; i++){
+    for (i = 0; i < markersBar.length; i++) {
       markersBar[i].setMap(map);
     }
-    for (i = 0; i < markersLodging.length; i++){
+    for (i = 0; i < markersLodging.length; i++) {
       markersLodging[i].setMap(map);
     }
-    for (i = 0; i < markersMuseum.length; i++){
+    for (i = 0; i < markersMuseum.length; i++) {
       markersMuseum[i].setMap(map);
     }
   }
-  
+
 }
 
 //Run initMap function once 'window' has loaded
