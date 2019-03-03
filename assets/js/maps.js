@@ -4,6 +4,9 @@ var markersBar = [];
 var markersLodging = [];
 var markersMuseum = [];
 
+//set photo arrays
+var photoMuseum = [];
+
 //set label variables
 var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var labelIndex = 0;
@@ -72,9 +75,12 @@ function initMap() {
     removeMarkers(markersBar);
     removeMarkers(markersLodging);
     removeMarkers(markersMuseum);
+    photoMuseum = [];
 
     //run the findPlaces function, passing in the current center of the map
     findPlaces(map.getCenter());
+    //display information for first 5 items in array
+    window.setTimeout(displayInfo, 2000);
   });
 
   //Listen for 'places_changed' event 
@@ -117,9 +123,13 @@ function initMap() {
     removeMarkers(markersBar);
     removeMarkers(markersLodging);
     removeMarkers(markersMuseum);
+    photoMuseum = [];
 
     //run the findPlaces function, passing in the current center of the map
     findPlaces(map.getCenter());
+    //display information for first 5 items in array
+    window.setTimeout(displayInfo, 2000);
+    
   });
 
   //when filter button is pressed, 
@@ -195,8 +205,7 @@ function initMap() {
       for (var i = 0; i < 10; i++) {
         createMarker(results[i], markerArray);
       }
-      //log array to console for debugging
-      console.log(markerArray);
+      //reset label index variable to 0 to re-use for the next array
       labelIndex = 0;
     }
   }
@@ -208,9 +217,11 @@ function initMap() {
     var marker = new google.maps.Marker({
       map: map,
       position: place.geometry.location,
-      label: labels[labelIndex++ % labels.length]
+      label: labels[labelIndex++ % labels.length],
+      title: place.name
     });
     markerArray.push(marker);
+    photoMuseum.push(place.photos[0].getUrl());
   }
 
   function removeMarkers(markersArray) {
@@ -265,6 +276,22 @@ function initMap() {
     }
   }
 
+  function displayInfo() {
+
+    //remove exiting info
+    for (i = 0; i < 5; i++){
+      $('#museum_image_' + i).html(
+        ``
+      );
+    }
+    
+    //display information from first 5 markers in the array
+    for (i = 0; i < 5; i++) {
+      $('#museum_image_' + i).html(
+        `<img src="${photoMuseum[i]}" alt="Museum Photo ${i}" height="200px" width="200px"><img>`
+      );
+    }
+  }
 }
 
 //Run initMap function once 'window' has loaded
