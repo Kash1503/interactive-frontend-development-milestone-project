@@ -4,8 +4,11 @@ var markersBar = [];
 var markersLodging = [];
 var markersMuseum = [];
 
-//set photo arrays
-var photoMuseum = [];
+//set arrays to hold all requested info for each place
+var museumPlace = [];
+var foodPlace = [];
+var barPlace = [];
+var lodgingPlace = [];
 
 //set label variables
 var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -75,7 +78,10 @@ function initMap() {
     removeMarkers(markersBar);
     removeMarkers(markersLodging);
     removeMarkers(markersMuseum);
-    photoMuseum = [];
+    museumPlace = [];
+    foodPlace = [];
+    barPlace = [];
+    lodgingPlace = [];
 
     //run the findPlaces function, passing in the current center of the map
     findPlaces(map.getCenter());
@@ -123,13 +129,16 @@ function initMap() {
     removeMarkers(markersBar);
     removeMarkers(markersLodging);
     removeMarkers(markersMuseum);
-    photoMuseum = [];
+    museumPlace = [];
+    foodPlace = [];
+    barPlace = [];
+    lodgingPlace = [];
 
     //run the findPlaces function, passing in the current center of the map
     findPlaces(map.getCenter());
     //display information for first 5 items in array
     window.setTimeout(displayInfo, 2000);
-    
+
   });
 
   //when filter button is pressed, 
@@ -154,9 +163,6 @@ function initMap() {
 
   //custom function to create a nearby places search
   function findPlaces(currentPos) {
-
-    //log the currentPos LatLng for debugging purposes
-    console.log(currentPos.toString());
 
     //Create variables to hold request data for each type of place with a 2000m radius
     var requestFood = {
@@ -186,24 +192,28 @@ function initMap() {
     //service variable to initiate the nearby search
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(requestFood, function(results, status) {
-      callback(results, status, markersFood);
+      callback(results, status, markersFood, foodPlace);
     });
     service.nearbySearch(requestBar, function(results, status) {
-      callback(results, status, markersBar);
+      callback(results, status, markersBar, barPlace);
     });
     service.nearbySearch(requestLodging, function(results, status) {
-      callback(results, status, markersLodging);
+      callback(results, status, markersLodging, lodgingPlace);
     });
     service.nearbySearch(requestMuseum, function(results, status) {
-      callback(results, status, markersMuseum);
+      callback(results, status, markersMuseum, museumPlace);
     });
   }
 
-  //function to check Places service status and run the createMarker function for the first 10 places in the array if the status is 'OK'
-  function callback(results, status, markerArray) {
+  //function to check Places service status and run the createMarker function for the first 5 places in the array if the status is 'OK'
+  function callback(results, status, markerArray, resultArray) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < 10; i++) {
-        createMarker(results[i], markerArray);
+      //check to ensure there is an object at current item in array, if so, push the result to arrays
+      for (var i = 0; i < 5; i++) {
+        if (results[i] !== undefined) {
+          resultArray.push(results[i]);
+          createMarker(results[i], markerArray);
+        }
       }
       //reset label index variable to 0 to re-use for the next array
       labelIndex = 0;
@@ -221,7 +231,6 @@ function initMap() {
       title: place.name
     });
     markerArray.push(marker);
-    photoMuseum.push(place.photos[0].getUrl());
   }
 
   function removeMarkers(markersArray) {
@@ -278,21 +287,109 @@ function initMap() {
 
   function displayInfo() {
 
-    //remove exiting info
-    for (i = 0; i < 5; i++){
-      $('#museum_image_' + i).html(
-        ``
-      );
-    }
-    
-    //display information from first 5 markers in the array
-    for (i = 0; i < 5; i++) {
-      $('#museum_image_' + i).html(
-        `<img src="${photoMuseum[i]}" alt="Museum Photo ${i}" height="200px" width="200px"><img>`
-      );
+    //remove existing photos and info
+    removeInfo('#museum_image_');
+    removeInfo('#museum_title_');
+    removeInfo('#museum_info_');
+
+    removeInfo('#hotel_image_');
+    removeInfo('#hotel_title_');
+    removeInfo('#hotel_info_');
+
+    removeInfo('#bar_image_');
+    removeInfo('#bar_title_');
+    removeInfo('#bar_info_');
+
+    removeInfo('#restaurant_image_');
+    removeInfo('#restaurant_title_');
+    removeInfo('#restaurant_info_');
+
+    //display photos from markers in each array
+    getPhotos("#museum_image_", museumPlace);
+    getInfo("#museum_title_", "#museum_info_", museumPlace);
+
+    getPhotos("#bar_image_", barPlace);
+    getInfo("#bar_title_", "#bar_info_", barPlace);
+
+    getPhotos("#restaurant_image_", foodPlace);
+    getInfo("#restaurant_title_", "#restaurant_info_", foodPlace);
+
+    getPhotos("#hotel_image_", lodgingPlace);
+    getInfo("#hotel_title_", "#hotel_info_", lodgingPlace);
+  }
+
+  function getPhotos(id, placeArray) {
+
+    //loop through the array, find the photo URL and create a new img element with the found URL as the source
+    for (i = 0; i < placeArray.length; i++) {
+      if (placeArray[i].photos !== undefined) {
+        $(id + i).html(
+          `<img src="${placeArray[i].photos[0].getUrl()}" alt="${id + i}" height="200px" width="200px"><img>`
+        );
+      }
+      else {
+        $(id + i).html(
+          `Sorry, no image available!`
+        );
+      }
     }
   }
-}
 
+  function getInfo(titleID, infoID, placeArray) {
+    
+    for (i = 0; i < placeArray.length; i++) {
+      //check to ensure the 'name' attribute is not undefined, if not then printname to the titleID div
+      if (placeArray[i].name !== undefined) {
+        $(titleID + i).html(
+          `${placeArray[i].name}`);
+      }
+      
+      //if it is undefined, return a message stating there is no name available
+      else {
+        $(titleID + i).html(
+          `Sorry, no name available!`
+        );
+      }
+      
+      //check to ensure there is a 'rating' attribute in the array item, if so then print rating to infoID div
+      if (placeArray[i].rating !== undefined) {
+        $(infoID + i).html(
+          `Rating: ${placeArray[i].rating.toString()} <br>`
+        );
+      }
+      
+      //if it is undefined or null then print a message stating there is no rating available
+      else {
+        $(infoID + i).html(
+          `Rating: Sorry, none available! <br>`
+        );
+      }
+      
+      //check to ensure the user_rating_total exists in the array item, if not then append total ratings to infoID div
+      if (placeArray[i].user_ratings_total !== undefined) {
+        $(infoID + i).append(
+          `Number of user ratings: ${placeArray[i].user_ratings_total.toString()}`
+        );
+      }
+      
+      //if it is undefined or null, print an error message
+      else {
+        $(infoID + i).append(
+          `Number of user ratings: Sorry, not available!`
+        );
+      }
+    }
+  }
+
+  function removeInfo(id) {
+    
+    //go through the given divs and remove the html from them
+    for (i = 0; i < 5; i++) {
+      $(id + i).html(
+        ``);
+    }
+  }
+
+}
 //Run initMap function once 'window' has loaded
 google.maps.event.addDomListener(window, 'load', initMap);
