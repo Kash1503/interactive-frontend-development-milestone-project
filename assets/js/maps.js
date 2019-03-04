@@ -324,7 +324,7 @@ function initMap() {
     for (i = 0; i < placeArray.length; i++) {
       if (placeArray[i].photos !== undefined) {
         $(id + i).html(
-          `<img src="${placeArray[i].photos[0].getUrl()}" alt="${id + i}" height="200px" width="200px"><img>`
+          `<img src="${placeArray[i].photos[0].getUrl()}" alt="${id + i}" class="marker-photo"><img>`
         );
       }
       else {

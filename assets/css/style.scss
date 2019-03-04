@@ -11,6 +11,7 @@ sans-serif;
 $main-grey: #474747;
 $main-white: #ffffff;
 $highlight-yellow: #f9f49c;
+$row-shadow: #dadada;
 
 //Mixins
 @mixin min992 {
@@ -51,6 +52,10 @@ $highlight-yellow: #f9f49c;
     margin: 0 1px;
 }
 
+.full-width{
+    width: 100%;
+}
+
 .center-content {
     text-align: center;
 }
@@ -65,6 +70,15 @@ $highlight-yellow: #f9f49c;
 .brand-text {
     font-family: $dancing-script;
     font-size: 40px;
+}
+
+.spacer{
+    width: 125px;
+    height: 5px;
+    background-color: $highlight-yellow;
+    border-radius: 10px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 //Colours
@@ -113,7 +127,7 @@ $highlight-yellow: #f9f49c;
         text-decoration: none;
         color: #fff;
         font-family: $open-sans-condensed;
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 100;
         @include transition;
     }
@@ -219,6 +233,70 @@ $highlight-yellow: #f9f49c;
     font-size: 15px;
 }
 
+//Info sections
+.info-section{
+    background-color: $main-white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.info-header{
+    font-family: $open-sans-condensed;
+    font-size: 50px;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.marker-frame{
+    height: 300px;
+    width: 70%;
+    background-color: $main-grey;
+    margin: 40px 20%;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.marker-photo{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.place-wrapper{
+    margin: 40px auto;
+    height: 300px;
+}
+
+.info-wrapper{
+    margin-top: 70px;
+}
+
+.place-title{
+    font-family: $open-sans-condensed;
+    font-size: 30px;
+    font-weight: 100;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.place-info{
+    font-family: $open-sans-condensed;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.row-shadow{
+    background-color: $row-shadow;
+}
+
 //Media Queries
 @include min600 {
     .search-bar {
@@ -235,7 +313,7 @@ $highlight-yellow: #f9f49c;
 
 @include min992 {
     .nav-item {
-        margin: 0 45px;
+        margin: 0 25px;
         padding-top: 25px;
         list-style: none;
     }
