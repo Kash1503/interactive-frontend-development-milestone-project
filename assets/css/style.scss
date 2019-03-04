@@ -260,6 +260,14 @@ $row-shadow: #dadada;
     border-radius: 5px;
 }
 
+.marker-frame-text{
+    font-family: $dancing-script;
+    font-size: 30px;
+    color: $main-white;
+    text-align: center;
+    padding-top: 125px;
+}
+
 .marker-photo{
     margin: 0;
     padding: 0;

@@ -41,6 +41,9 @@ function initMap() {
   //Listen for 'places_changed' event 
   searchBox.addListener('places_changed', function() {
 
+    //move the viewport to the map section
+    window.location.href = "#map-section";
+
     //set places variable to places found with searchBox
     var places = searchBox.getPlaces();
 
@@ -85,12 +88,18 @@ function initMap() {
 
     //run the findPlaces function, passing in the current center of the map
     findPlaces(map.getCenter());
+
+
+
     //display information for first 5 items in array
-    window.setTimeout(displayInfo, 2000);
+    window.setTimeout(displayInfo(), 2000);
   });
 
   //Listen for 'places_changed' event 
   searchBox2.addListener('places_changed', function() {
+
+    //move the viewport to the map section
+    window.location.href = "#map-section";
 
     //set places variable to places found with searchBox
     var places2 = searchBox2.getPlaces();
@@ -136,6 +145,7 @@ function initMap() {
 
     //run the findPlaces function, passing in the current center of the map
     findPlaces(map.getCenter());
+
     //display information for first 5 items in array
     window.setTimeout(displayInfo, 2000);
 
@@ -143,16 +153,13 @@ function initMap() {
 
   //when filter button is pressed, 
   google.maps.event.addDomListener(document.getElementById('filter'), 'click', function() {
-    if ($("#mapFilter option:selected").val() == 'all') {
-      showAllMarkers();
-    };
     if ($("#mapFilter option:selected").val() == 'museum') {
       changeMarkers(markersMuseum);
     };
     if ($("#mapFilter option:selected").val() == 'food') {
       changeMarkers(markersFood);
     };
-    if ($("#mapFilter option:selected").val() == 'drink') {
+    if ($("#mapFilter option:selected").val() == 'bar') {
       changeMarkers(markersBar);
     };
     if ($("#mapFilter option:selected").val() == 'lodging') {
@@ -217,6 +224,20 @@ function initMap() {
       }
       //reset label index variable to 0 to re-use for the next array
       labelIndex = 0;
+
+      //set the markers to display only those of the current filter
+      if ($("#mapFilter option:selected").val() == 'museum') {
+        changeMarkers(markersMuseum);
+      };
+      if ($("#mapFilter option:selected").val() == 'food') {
+        changeMarkers(markersFood);
+      };
+      if ($("#mapFilter option:selected").val() == 'bar') {
+        changeMarkers(markersBar);
+      };
+      if ($("#mapFilter option:selected").val() == 'lodging') {
+        changeMarkers(markersLodging);
+      };
     }
   }
 
@@ -268,24 +289,7 @@ function initMap() {
 
   }
 
-  function showAllMarkers() {
-
-    //show all the current markers
-    for (i = 0; i < markersFood.length; i++) {
-      markersFood[i].setMap(map);
-    }
-    for (i = 0; i < markersBar.length; i++) {
-      markersBar[i].setMap(map);
-    }
-    for (i = 0; i < markersLodging.length; i++) {
-      markersLodging[i].setMap(map);
-    }
-    for (i = 0; i < markersMuseum.length; i++) {
-      markersMuseum[i].setMap(map);
-    }
-  }
-
-  function displayInfo() {
+  function displayInfo(markerArray) {
 
     //remove existing photos and info
     removeInfo('#museum_image_');
@@ -329,49 +333,49 @@ function initMap() {
       }
       else {
         $(id + i).html(
-          `Sorry, no image available!`
+          `<div class="marker-frame-text">Sorry, no image available!</div>`
         );
       }
     }
   }
 
   function getInfo(titleID, infoID, placeArray) {
-    
+
     for (i = 0; i < placeArray.length; i++) {
       //check to ensure the 'name' attribute is not undefined, if not then printname to the titleID div
       if (placeArray[i].name !== undefined) {
         $(titleID + i).html(
           `${placeArray[i].name}`);
       }
-      
+
       //if it is undefined, return a message stating there is no name available
       else {
         $(titleID + i).html(
           `Sorry, no name available!`
         );
       }
-      
+
       //check to ensure there is a 'rating' attribute in the array item, if so then print rating to infoID div
       if (placeArray[i].rating !== undefined) {
         $(infoID + i).html(
           `Rating: ${placeArray[i].rating.toString()} <br>`
         );
       }
-      
+
       //if it is undefined or null then print a message stating there is no rating available
       else {
         $(infoID + i).html(
           `Rating: Sorry, none available! <br>`
         );
       }
-      
+
       //check to ensure the user_rating_total exists in the array item, if not then append total ratings to infoID div
       if (placeArray[i].user_ratings_total !== undefined) {
         $(infoID + i).append(
           `Number of user ratings: ${placeArray[i].user_ratings_total.toString()}`
         );
       }
-      
+
       //if it is undefined or null, print an error message
       else {
         $(infoID + i).append(
@@ -382,7 +386,7 @@ function initMap() {
   }
 
   function removeInfo(id) {
-    
+
     //go through the given divs and remove the html from them
     for (i = 0; i < 5; i++) {
       $(id + i).html(
