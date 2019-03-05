@@ -163,7 +163,6 @@
   height: 40px;
   width: 50%;
   border-radius: 5px;
-  margin-left: 15%;
   margin-top: 10px;
   background-color: #ffffff; }
 
@@ -173,11 +172,12 @@
   text-align: center;
   border-radius: 5px;
   margin-top: 10px;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  padding: 0; }
 
 .map-bar {
   background-color: #63859c;
-  height: 60px;
+  height: 110px;
   width: 95%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -255,6 +255,24 @@
     font-weight: 100;
     font-size: 15px;
     padding-left: 10px; } }
+@media only screen and (min-width: 768px) {
+  .map-bar {
+    background-color: #63859c;
+    height: 60px;
+    width: 95%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    margin: 0px auto; }
+
+  .map-filter {
+    text-align: center;
+    height: 40px;
+    width: 50%;
+    border-radius: 5px;
+    margin-left: 15%;
+    margin-top: 10px;
+    background-color: #ffffff; } }
 @media only screen and (min-width: 992px) {
   .nav-item {
     margin: 0 25px;

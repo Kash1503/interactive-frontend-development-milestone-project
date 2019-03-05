@@ -247,7 +247,6 @@ $map-bar: #63859c;
     height: 40px;
     width: 50%;
     border-radius: 5px;
-    margin-left: 15%;
     margin-top: 10px;
     background-color: $main-white;
 }
@@ -259,11 +258,12 @@ $map-bar: #63859c;
     border-radius: 5px;
     margin-top: 10px;
     background-color: $main-white;
+    padding: 0;
 }
 
 .map-bar {
     background-color: $map-bar;
-    height: 60px;
+    height: 110px;
     width: 95%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -354,6 +354,28 @@ $map-bar: #63859c;
         font-weight: 100;
         font-size: 15px;
         padding-left: 10px;
+    }
+}
+
+@include min768 {
+    .map-bar {
+        background-color: $map-bar;
+        height: 60px;
+        width: 95%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: center;
+        margin: 0px auto;
+    }
+
+    .map-filter {
+        text-align: center;
+        height: 40px;
+        width: 50%;
+        border-radius: 5px;
+        margin-left: 15%;
+        margin-top: 10px;
+        background-color: $main-white;
     }
 }
 
