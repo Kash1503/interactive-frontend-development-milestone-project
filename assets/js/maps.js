@@ -89,10 +89,8 @@ function initMap() {
     //run the findPlaces function, passing in the current center of the map
     findPlaces(map.getCenter());
 
-
-
     //display information for first 5 items in array
-    window.setTimeout(displayInfo(), 2000);
+    window.setTimeout(displayInfo, 2000);
   });
 
   //Listen for 'places_changed' event 
