@@ -111,26 +111,29 @@
 
         <!--Google maps Section-->
         <div class="container-fluid no-padding margin-1px">
-            <div class="row">
-                <div class="col-xs-12 col-lg-6">
-                    <p>Filter</p>
-                    <select id="mapFilter">
+            <div class="row map-bar">
+                <div class="col-xs-6">
+                    <select id="mapFilter" class="map-filter">
                       <option value="museum">Museums</option>
                       <option value="food">Food</option>
                       <option value="bar">Drink</option>
                       <option value="lodging">Accommodation</option>
                     </select>
-                    <button id="filter">Filter</button>
+                    <button id="filter" class="filter-btn">Filter</button>
+                </div>
+                <div class="col-xs-6">
+                    <form class="search-form-mini">
+                        <input id="search-bar2" type="text" name="search-bar" class="search-bar-mini" placeholder="Where would you like to go?.." onkeypress="return noSubmit(window.event.keyCode)" />
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
                     <div class="map-wrapper">
                         <div id="map">
 
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-lg-6">
-                    <form class="search-form">
-                        <input id="search-bar2" type="text" name="search-bar" class="search-bar-mini" placeholder="Where else would you like to go?.." onkeypress="return noSubmit(window.event.keyCode)" />
-                    </form>
                 </div>
             </div>
         </div>

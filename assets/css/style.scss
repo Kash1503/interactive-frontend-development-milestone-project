@@ -12,6 +12,7 @@ $main-grey: #474747;
 $main-white: #ffffff;
 $highlight-yellow: #f9f49c;
 $row-shadow: #dadada;
+$map-bar: #63859c;
 
 //Mixins
 @mixin min992 {
@@ -52,7 +53,7 @@ $row-shadow: #dadada;
     margin: 0 1px;
 }
 
-.full-width{
+.full-width {
     width: 100%;
 }
 
@@ -72,7 +73,7 @@ $row-shadow: #dadada;
     font-size: 40px;
 }
 
-.spacer{
+.spacer {
     width: 125px;
     height: 5px;
     background-color: $highlight-yellow;
@@ -215,13 +216,15 @@ $row-shadow: #dadada;
 #map {
     height: 100%;
     width: 100%;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .map-wrapper {
-    height: 500px;
+    height: 400px;
     width: 95%;
     margin: 10px auto;
+    margin-top: 0px;
 }
 
 .search-bar-mini {
@@ -231,17 +234,52 @@ $row-shadow: #dadada;
     font-family: $open-sans-condensed;
     font-weight: 100;
     font-size: 15px;
+    padding-left: 10px;
+}
+
+.search-form-mini {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.map-filter {
+    text-align: center;
+    height: 40px;
+    width: 50%;
+    border-radius: 5px;
+    margin-left: 15%;
+    margin-top: 10px;
+    background-color: $main-white;
+}
+
+.filter-btn {
+    height: 40px;
+    width: 50px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: $main-white;
+}
+
+.map-bar {
+    background-color: $map-bar;
+    height: 60px;
+    width: 95%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    margin: 0px auto;
 }
 
 //Info sections
-.info-section{
+.info-section {
     background-color: $main-white;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 0;
 }
 
-.info-header{
+.info-header {
     font-family: $open-sans-condensed;
     font-size: 50px;
     font-weight: 100;
@@ -251,7 +289,7 @@ $row-shadow: #dadada;
     padding: 0;
 }
 
-.marker-frame{
+.marker-frame {
     height: 300px;
     width: 70%;
     background-color: $main-grey;
@@ -260,7 +298,7 @@ $row-shadow: #dadada;
     border-radius: 5px;
 }
 
-.marker-frame-text{
+.marker-frame-text {
     font-family: $dancing-script;
     font-size: 30px;
     color: $main-white;
@@ -268,7 +306,7 @@ $row-shadow: #dadada;
     padding-top: 125px;
 }
 
-.marker-photo{
+.marker-photo {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -276,16 +314,16 @@ $row-shadow: #dadada;
     border-radius: 5px;
 }
 
-.place-wrapper{
+.place-wrapper {
     margin: 40px auto;
     height: 300px;
 }
 
-.info-wrapper{
+.info-wrapper {
     margin-top: 70px;
 }
 
-.place-title{
+.place-title {
     font-family: $open-sans-condensed;
     font-size: 30px;
     font-weight: 100;
@@ -293,7 +331,7 @@ $row-shadow: #dadada;
     margin-bottom: 20px;
 }
 
-.place-info{
+.place-info {
     font-family: $open-sans-condensed;
     font-size: 20px;
     font-weight: 100;
@@ -301,7 +339,7 @@ $row-shadow: #dadada;
     margin-bottom: 20px;
 }
 
-.row-shadow{
+.row-shadow {
     background-color: $row-shadow;
 }
 
