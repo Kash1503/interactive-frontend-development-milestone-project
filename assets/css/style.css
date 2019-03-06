@@ -226,12 +226,20 @@
   height: 300px; }
 
 .info-wrapper {
-  margin-top: 70px; }
+  margin-top: 40px; }
+
+.placeholder {
+  margin-top: 125px;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: left;
+  margin-bottom: 20px; }
 
 .place-title {
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 30px;
-  font-weight: 100;
+  font-weight: 500;
   text-align: left;
   margin-bottom: 20px; }
 
@@ -239,6 +247,13 @@
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 20px;
   font-weight: 100;
+  text-align: left;
+  margin-bottom: 20px; }
+
+.info-name {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
   text-align: left;
   margin-bottom: 20px; }
 

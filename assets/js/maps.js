@@ -14,6 +14,10 @@ var lodgingPlace = [];
 var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var labelIndex = 0;
 
+//create variables to use in places details search
+const baseURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid="
+const urlEnd = "&fields=formatted_address,formatted_phone_number,website&key=AIzaSyCHmEm8NDMhkK4kCH91h7RlKNf83AmKTR4"
+
 //Initialise Google Maps (taken from Google Maps API Documentation and edited to fit my page, added code for second search bar)
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -222,6 +226,8 @@ function initMap() {
       }
       //reset label index variable to 0 to re-use for the next array
       labelIndex = 0;
+      //log the array to the console for debugging
+      console.log(resultArray);
 
       //set the markers to display only those of the current filter
       if ($("#mapFilter option:selected").val() == 'museum') {
@@ -349,37 +355,79 @@ function initMap() {
       //if it is undefined, return a message stating there is no name available
       else {
         $(titleID + i).html(
-          `Sorry, no name available!`
+          `<span class="info-name">Sorry, no name available!</span>`
         );
       }
 
       //check to ensure there is a 'rating' attribute in the array item, if so then print rating to infoID div
       if (placeArray[i].rating !== undefined) {
         $(infoID + i).html(
-          `Rating: ${placeArray[i].rating.toString()} <br>`
+          `<span class="info-name">Rating:</span> ${placeArray[i].rating.toString()} <br>`
         );
       }
 
       //if it is undefined or null then print a message stating there is no rating available
       else {
         $(infoID + i).html(
-          `Rating: Sorry, none available! <br>`
+          `<span class="info-name">Rating:</span> Sorry, none available! <br>`
         );
       }
 
       //check to ensure the user_rating_total exists in the array item, if not then append total ratings to infoID div
       if (placeArray[i].user_ratings_total !== undefined) {
         $(infoID + i).append(
-          `Number of user ratings: ${placeArray[i].user_ratings_total.toString()}`
+          `<span class="info-name">Number of user ratings:</span> ${placeArray[i].user_ratings_total.toString()}`
         );
       }
 
       //if it is undefined or null, print an error message
       else {
         $(infoID + i).append(
-          `Number of user ratings: Sorry, not available!`
+          `<span class="info-name">Number of user ratings:</span> Sorry, not available!`
         );
       }
+      
+      //get the address and contact details from a places details search
+      getPlaceDetails(placeArray[i], infoID, i);
+
+    }
+  }
+
+  function getPlaceDetails(place, infoID, i) {
+
+    //create request to use for details search
+    var request = {
+      fields: ["formatted_address", "formatted_phone_number", "website"],
+      placeId: place.place_id,
+    };
+
+    //get the details of the requested place from place_ID
+    service = new google.maps.places.PlacesService(map);
+    service.getDetails(request, function(results, status) {
+      detailsCallback(results, status, infoID, i, place);
+    });
+
+  }
+
+  function detailsCallback(results, status, infoID, i, place) {
+    
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      //display address information in relevant div
+      $(infoID + i).append(
+        `<br><span class="info-name">Address:</span> ${results.formatted_address.toString()}`
+      );
+      //display contact information in relevant div
+      $(infoID + i).append(
+        `<br><span class="info-name">Phone:</span> ${results.formatted_phone_number.toString()}`
+      );
+      //display website information in relevant div
+      $(infoID + i).append(
+        `<br><span class="info-name">Wesite:</span> <a href="${results.website.toString()}" target="_blank">Click here to go to the website</a>`
+      );
+    } else if(status == google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT){
+      setTimeout(function(){
+        getPlaceDetails(place, infoID, i);
+      }, 1000)
     }
   }
 
