@@ -341,6 +341,12 @@ function initMap() {
         );
       }
     }
+    //if less than 5 results are returned, apply text indicating that there was no result
+    for (i = placeArray.length; i < 5; i++) {
+      $(id + i).html(
+        `<div class="marker-frame-text">Sorry, we didnt find anything else!</div>`
+      );
+    }
   }
 
   function getInfo(titleID, infoID, placeArray) {
@@ -442,7 +448,8 @@ function initMap() {
         $(infoID + i).append(
           `<br><span class="info-name">Wesite:</span> <a href="${results.website.toString()}" target="_blank">Click here to go to the website</a>`
         );
-      } else {
+      }
+      else {
         $(infoID + i).append(
           `<br><span class="info-name">Wesite:</span> Sorry, no website available!`
         );
