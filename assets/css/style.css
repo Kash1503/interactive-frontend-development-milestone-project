@@ -201,9 +201,9 @@
 
 .marker-frame {
   height: 300px;
-  width: 70%;
+  width: 90%;
   background-color: #474747;
-  margin: 40px 20%;
+  margin: 40px 5% 20px 5%;
   padding: 0;
   border-radius: 5px; }
 
@@ -222,39 +222,40 @@
   border-radius: 5px; }
 
 .place-wrapper {
-  margin: 40px auto;
-  height: 300px; }
+  margin: 0px auto;
+  height: 200px; }
 
 .info-wrapper {
-  margin-top: 40px; }
+  margin-bottom: 20px; }
 
 .placeholder {
-  margin-top: 125px;
+  margin-top: 75px;
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 20px;
   font-weight: 100;
   text-align: left;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  text-align: center; }
 
 .place-title {
   font-family: "Open Sans Condensed", sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 500;
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px; }
 
 .place-info {
   font-family: "Open Sans Condensed", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 100;
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px; }
 
 .info-name {
   font-family: "Open Sans Condensed", sans-serif;
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 500;
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px; }
 
 .row-shadow {
@@ -280,6 +281,9 @@
     text-align: center;
     margin: 0px auto; }
 
+  .info-wrapper {
+    margin-top: 40px; }
+
   .map-filter {
     text-align: center;
     height: 40px;
@@ -287,11 +291,60 @@
     border-radius: 5px;
     margin-left: 15%;
     margin-top: 10px;
-    background-color: #ffffff; } }
+    background-color: #ffffff; }
+
+  .placeholder {
+    margin-top: 125px;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: left;
+    margin-bottom: 20px; }
+
+  .place-wrapper {
+    margin: 40px auto;
+    height: 300px; }
+
+  .place-title {
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 20px; }
+
+  .place-info {
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: left;
+    margin-bottom: 20px; }
+
+  .info-name {
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 20px; }
+
+  .marker-frame {
+    height: 300px;
+    width: 90%;
+    background-color: #474747;
+    margin: 40px 5%;
+    padding: 0;
+    border-radius: 5px; } }
 @media only screen and (min-width: 992px) {
   .nav-item {
     margin: 0 25px;
     padding-top: 25px;
-    list-style: none; } }
+    list-style: none; }
+
+  .marker-frame {
+    height: 300px;
+    width: 70%;
+    background-color: #474747;
+    margin: 40px 20%;
+    padding: 0;
+    border-radius: 5px; } }
 
 /*# sourceMappingURL=style.css.map */

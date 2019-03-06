@@ -386,7 +386,7 @@ function initMap() {
           `<span class="info-name">Number of user ratings:</span> Sorry, not available!`
         );
       }
-      
+
       //get the address and contact details from a places details search
       getPlaceDetails(placeArray[i], infoID, i);
 
@@ -410,22 +410,46 @@ function initMap() {
   }
 
   function detailsCallback(results, status, infoID, i, place) {
-    
+
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+
       //display address information in relevant div
-      $(infoID + i).append(
-        `<br><span class="info-name">Address:</span> ${results.formatted_address.toString()}`
-      );
+      if (results.fortmatted_address !== null) {
+        $(infoID + i).append(
+          `<br><span class="info-name">Address:</span> ${results.formatted_address.toString()}`
+        );
+      }
+      else {
+        $(infoID + i).append(
+          `<br><span class="info-name">Address:</span> Sorry, no address available!`
+        );
+      }
+
       //display contact information in relevant div
-      $(infoID + i).append(
-        `<br><span class="info-name">Phone:</span> ${results.formatted_phone_number.toString()}`
-      );
+      if (results.formatted_phone_number !== undefined) {
+        $(infoID + i).append(
+          `<br><span class="info-name">Phone:</span> ${results.formatted_phone_number.toString()}`
+        );
+      }
+      else {
+        $(infoID + i).append(
+          `<br><span class="info-name">Phone:</span> Sorry, no phone number available!}`
+        );
+      }
+
       //display website information in relevant div
-      $(infoID + i).append(
-        `<br><span class="info-name">Wesite:</span> <a href="${results.website.toString()}" target="_blank">Click here to go to the website</a>`
-      );
-    } else if(status == google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT){
-      setTimeout(function(){
+      if (results.website !== undefined) {
+        $(infoID + i).append(
+          `<br><span class="info-name">Wesite:</span> <a href="${results.website.toString()}" target="_blank">Click here to go to the website</a>`
+        );
+      } else {
+        $(infoID + i).append(
+          `<br><span class="info-name">Wesite:</span> Sorry, no website available!`
+        );
+      }
+    }
+    else if (status == google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
+      setTimeout(function() {
         getPlaceDetails(place, infoID, i);
       }, 1000)
     }

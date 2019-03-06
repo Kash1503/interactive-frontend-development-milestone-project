@@ -291,9 +291,9 @@ $map-bar: #63859c;
 
 .marker-frame {
     height: 300px;
-    width: 70%;
+    width: 90%;
     background-color: $main-grey;
-    margin: 40px 20%;
+    margin: 40px 5% 20px 5%;
     padding: 0;
     border-radius: 5px;
 }
@@ -315,44 +315,45 @@ $map-bar: #63859c;
 }
 
 .place-wrapper {
-    margin: 40px auto;
-    height: 300px;
+    margin: 0px auto;
+    height: 200px;
 }
 
 .info-wrapper {
-    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
-.placeholder{
-    margin-top: 125px;
+.placeholder {
+    margin-top: 75px;
     font-family: $open-sans-condensed;
     font-size: 20px;
     font-weight: 100;
     text-align: left;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .place-title {
     font-family: $open-sans-condensed;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 500;
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
 }
 
 .place-info {
     font-family: $open-sans-condensed;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 100;
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.info-name{
+.info-name {
     font-family: $open-sans-condensed;
-    font-size: 22px;
+    font-size: 17px;
     font-weight: 500;
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -385,6 +386,10 @@ $map-bar: #63859c;
         margin: 0px auto;
     }
 
+    .info-wrapper {
+        margin-top: 40px;
+    }
+
     .map-filter {
         text-align: center;
         height: 40px;
@@ -394,6 +399,53 @@ $map-bar: #63859c;
         margin-top: 10px;
         background-color: $main-white;
     }
+
+    .placeholder {
+        margin-top: 125px;
+        font-family: $open-sans-condensed;
+        font-size: 20px;
+        font-weight: 100;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .place-wrapper {
+        margin: 40px auto;
+        height: 300px;
+    }
+
+    .place-title {
+        font-family: $open-sans-condensed;
+        font-size: 30px;
+        font-weight: 500;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .place-info {
+        font-family: $open-sans-condensed;
+        font-size: 20px;
+        font-weight: 100;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .info-name {
+        font-family: $open-sans-condensed;
+        font-size: 22px;
+        font-weight: 500;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .marker-frame {
+        height: 300px;
+        width: 90%;
+        background-color: $main-grey;
+        margin: 40px 5%;
+        padding: 0;
+        border-radius: 5px;
+    }
 }
 
 @include min992 {
@@ -401,5 +453,14 @@ $map-bar: #63859c;
         margin: 0 25px;
         padding-top: 25px;
         list-style: none;
+    }
+
+    .marker-frame {
+        height: 300px;
+        width: 70%;
+        background-color: $main-grey;
+        margin: 40px 20%;
+        padding: 0;
+        border-radius: 5px;
     }
 }
