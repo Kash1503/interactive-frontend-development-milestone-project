@@ -128,7 +128,7 @@ I have only used one Git branch to develop and deploy this project. [Click here 
 
 ## Credit
 
-### Content
+### Media
 
 - Image for the Welcome Section was taken from [Pixabay.com](https://pixabay.com/photos/manhattan-empire-state-building-336708/)
 
