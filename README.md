@@ -78,7 +78,7 @@ Wireframes and other documentation is stored in the [Planning Folder](assets/pla
 
 ## Testing
 
-###Manual Testing
+### Manual Testing
 
 All manual testing completed on Safari and Google Chrome at both mobile and desktop size on macbook pro and iphone 7 Plus. Unable to see difference between browsers tested on.
 
@@ -106,12 +106,12 @@ All manual testing completed on Safari and Google Chrome at both mobile and desk
  - Used physical devices available to test different resolutions
  - Checked to ensure map and map toolbar were visible and useable at all page sizes
 
-###Automatic Testing
+### Automatic Testing
 
 I have used Jasmine to automated tests for one of the functions written. This function (noSubmit) was written to prevent the search bar attempting to submit the information when the 'enter' key was pressed. This was causing the page to reload and the Google Maps search would not completed
-[Click here to view the Jasmine test](jasmine-test.html)
+[Click here to view the Jasmine test](https://kash1503.github.io/interactive-frontend-development-milestone-project/jasmine-test.html)
 
-###Encountered various bugs while testing
+### Encountered various bugs while testing
 
 - Found that at smaller resolutions, the information text below the place photo would sometimes go right to the edge of the screen if the text returned was too long. This was difficult to read and caused issues with the user experience.
 - Bug found whereby the place search would stop when certain information was not present within the returned array. For example if no user rating was returned, it would still attempt to write the user ratings to the page, causing an error.
