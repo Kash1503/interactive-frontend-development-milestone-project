@@ -404,7 +404,7 @@ function initMap() {
     //create request to use for details search
     var request = {
       fields: ["formatted_address", "formatted_phone_number", "website"],
-      placeId: place.place_id,
+      placeId: place.place_id
     };
 
     //get the details of the requested place from place_ID
