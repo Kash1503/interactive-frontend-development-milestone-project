@@ -316,11 +316,14 @@ $map-bar: #63859c;
 
 .place-wrapper {
     margin: 0px auto;
-    height: 250px;
+    height: 300px;
 }
 
 .info-wrapper {
+    margin: 0px auto;
     margin-bottom: 20px;
+    width: 90%;
+    text-align: center;
 }
 
 .placeholder {
@@ -410,7 +413,7 @@ $map-bar: #63859c;
     }
 
     .place-wrapper {
-        margin: 40px auto;
+        margin: 0 auto;
         height: 300px;
     }
 

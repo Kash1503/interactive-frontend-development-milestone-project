@@ -439,7 +439,7 @@ function initMap() {
       }
       else {
         $(infoID + i).append(
-          `<br><span class="info-name">Phone:</span> Sorry, no phone number available!}`
+          `<br><span class="info-name">Phone:</span> Sorry, no phone number available!`
         );
       }
 

@@ -223,10 +223,13 @@
 
 .place-wrapper {
   margin: 0px auto;
-  height: 250px; }
+  height: 300px; }
 
 .info-wrapper {
-  margin-bottom: 20px; }
+  margin: 0px auto;
+  margin-bottom: 20px;
+  width: 90%;
+  text-align: center; }
 
 .placeholder {
   margin-top: 75px;
@@ -302,7 +305,7 @@
     margin-bottom: 20px; }
 
   .place-wrapper {
-    margin: 40px auto;
+    margin: 0 auto;
     height: 300px; }
 
   .place-title {
