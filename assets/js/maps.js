@@ -14,10 +14,6 @@ var lodgingPlace = [];
 var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var labelIndex = 0;
 
-//create variables to use in places details search
-const baseURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid="
-const urlEnd = "&fields=formatted_address,formatted_phone_number,website&key=AIzaSyCHmEm8NDMhkK4kCH91h7RlKNf83AmKTR4"
-
 //Initialise Google Maps (taken from Google Maps API Documentation and edited to fit my page, added code for second search bar)
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -157,16 +153,16 @@ function initMap() {
   google.maps.event.addDomListener(document.getElementById('filter'), 'click', function() {
     if ($("#mapFilter option:selected").val() == 'museum') {
       changeMarkers(markersMuseum);
-    };
+    }
     if ($("#mapFilter option:selected").val() == 'food') {
       changeMarkers(markersFood);
-    };
+    }
     if ($("#mapFilter option:selected").val() == 'bar') {
       changeMarkers(markersBar);
-    };
+    }
     if ($("#mapFilter option:selected").val() == 'lodging') {
       changeMarkers(markersLodging);
-    };
+    }
   });
 
 
@@ -232,16 +228,16 @@ function initMap() {
       //set the markers to display only those of the current filter
       if ($("#mapFilter option:selected").val() == 'museum') {
         changeMarkers(markersMuseum);
-      };
+      }
       if ($("#mapFilter option:selected").val() == 'food') {
         changeMarkers(markersFood);
-      };
+      }
       if ($("#mapFilter option:selected").val() == 'bar') {
         changeMarkers(markersBar);
-      };
+      }
       if ($("#mapFilter option:selected").val() == 'lodging') {
         changeMarkers(markersLodging);
-      };
+      }
     }
   }
 
@@ -458,7 +454,7 @@ function initMap() {
     else if (status == google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
       setTimeout(function() {
         getPlaceDetails(place, infoID, i);
-      }, 1000)
+      }, 1000);
     }
   }
 
