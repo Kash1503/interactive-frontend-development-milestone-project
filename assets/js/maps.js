@@ -466,5 +466,3 @@ function initMap() {
   }
 
 }
-//Run initMap function once 'window' has loaded
-google.maps.event.addDomListener(window, 'load', initMap);
