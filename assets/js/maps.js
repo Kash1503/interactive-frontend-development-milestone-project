@@ -419,5 +419,4 @@ function initMap() {
         ``);
     }
   }
-
 }
