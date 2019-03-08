@@ -222,8 +222,6 @@ function initMap() {
       }
       //reset label index variable to 0 to re-use for the next array
       labelIndex = 0;
-      //log the array to the console for debugging
-      console.log(resultArray);
 
       //set the markers to display only those of the current filter
       if ($("#mapFilter option:selected").val() == 'museum') {
