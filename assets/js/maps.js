@@ -41,11 +41,39 @@ function initMap() {
   //Listen for 'places_changed' event 
   searchBox.addListener('places_changed', function() {
 
+    //run the placesChanged function using given searchBox
+    placesChanged(searchBox);
+  });
+
+  //Listen for 'places_changed' event 
+  searchBox2.addListener('places_changed', function() {
+
+    //run the placesChanged function using given searchBox
+    placesChanged(searchBox2);
+  });
+
+  //when filter button is pressed, 
+  google.maps.event.addDomListener(document.getElementById('filter'), 'click', function() {
+    if ($("#mapFilter option:selected").val() == 'museum') {
+      changeMarkers(markersMuseum);
+    }
+    if ($("#mapFilter option:selected").val() == 'food') {
+      changeMarkers(markersFood);
+    }
+    if ($("#mapFilter option:selected").val() == 'bar') {
+      changeMarkers(markersBar);
+    }
+    if ($("#mapFilter option:selected").val() == 'lodging') {
+      changeMarkers(markersLodging);
+    }
+  });
+
+  function placesChanged(search) {
     //move the viewport to the map section
     window.location.href = "#map-section";
 
     //set places variable to places found with searchBox
-    var places = searchBox.getPlaces();
+    var places = search.getPlaces();
 
     //if there are no places, return
     if (places.length == 0) {
@@ -91,80 +119,7 @@ function initMap() {
 
     //display information for first 5 items in array
     window.setTimeout(displayInfo, 2000);
-  });
-
-  //Listen for 'places_changed' event 
-  searchBox2.addListener('places_changed', function() {
-
-    //move the viewport to the map section
-    window.location.href = "#map-section";
-
-    //set places variable to places found with searchBox
-    var places2 = searchBox2.getPlaces();
-
-    //if there are no places, return
-    if (places2.length == 0) {
-      return;
-    }
-
-    //create the bounds variable
-    var bounds2 = new google.maps.LatLngBounds();
-
-    //for each place in places, check if place is within the viewport, if not, extend the bounds
-    places2.forEach(function(place) {
-      if (!place.geometry) {
-        console.log("Returned place contains no geometry");
-        return;
-      }
-
-      if (place.geometry.viewport) {
-        bounds2.union(place.geometry.viewport);
-      }
-      else {
-        bounds2.extend(place.geometry.location);
-      }
-    });
-
-    //set the center of the map to the center of the bounds variable
-    map.setCenter(bounds2.getCenter());
-
-    //set the zoom to 13
-    map.setZoom(13);
-
-    //remove current markers if there are any
-    removeMarkers(markersFood);
-    removeMarkers(markersBar);
-    removeMarkers(markersLodging);
-    removeMarkers(markersMuseum);
-    museumPlace = [];
-    foodPlace = [];
-    barPlace = [];
-    lodgingPlace = [];
-
-    //run the findPlaces function, passing in the current center of the map
-    findPlaces(map.getCenter());
-
-    //display information for first 5 items in array
-    window.setTimeout(displayInfo, 2000);
-
-  });
-
-  //when filter button is pressed, 
-  google.maps.event.addDomListener(document.getElementById('filter'), 'click', function() {
-    if ($("#mapFilter option:selected").val() == 'museum') {
-      changeMarkers(markersMuseum);
-    }
-    if ($("#mapFilter option:selected").val() == 'food') {
-      changeMarkers(markersFood);
-    }
-    if ($("#mapFilter option:selected").val() == 'bar') {
-      changeMarkers(markersBar);
-    }
-    if ($("#mapFilter option:selected").val() == 'lodging') {
-      changeMarkers(markersLodging);
-    }
-  });
-
+  }
 
   //custom function to create a nearby places search
   function findPlaces(currentPos) {
