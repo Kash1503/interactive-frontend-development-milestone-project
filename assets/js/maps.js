@@ -355,13 +355,13 @@ function initMap() {
       //check to ensure the 'name' attribute is not undefined, if not then printname to the titleID div
       if (placeArray[i].name !== undefined) {
         $(titleID + i).html(
-          `${placeArray[i].name}`);
+          `${labels[i % labels.length]}. ${placeArray[i].name}`);
       }
 
       //if it is undefined, return a message stating there is no name available
       else {
         $(titleID + i).html(
-          `<span class="info-name">Sorry, no name available!</span>`
+          `${labels[i % labels.length]}. <span class="info-name">Sorry, no name available!</span>`
         );
       }
 
